@@ -9,17 +9,24 @@ public static class ApplicationServiceExtensions
     {
         // set db connection
         var connectionString = config.GetConnectionString("DefaultConnection");
+        // var connectionStringSqlite = config.GetConnectionString("DefaultConnectionSqlite");
+        
         services.AddDbContext<StoreContext>(options =>
         {
-            options.UseSqlite(connectionString);
+            options.UseSqlServer(connectionString);
+            // options.UseSqlite(connectionStringSqlite);
         });
 
         var loggerFactory = services.BuildServiceProvider().GetRequiredService<ILoggerFactory>();
 
         try
         {
+            // Migrate and Seed Data
+            
             var context = services.BuildServiceProvider().GetRequiredService<StoreContext>();
             await context.Database.MigrateAsync();
+            
+            await AppDbInitializer.SeedAsync(context, loggerFactory);
         }
         catch (Exception e)
         {

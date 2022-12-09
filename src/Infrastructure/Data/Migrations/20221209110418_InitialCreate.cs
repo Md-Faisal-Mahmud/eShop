@@ -12,9 +12,9 @@ namespace Infrastructure.Data.Migrations
                 name: "ProductBrand",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Name = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -25,9 +25,9 @@ namespace Infrastructure.Data.Migrations
                 name: "ProductType",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Name = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -38,14 +38,14 @@ namespace Infrastructure.Data.Migrations
                 name: "Product",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Name = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false),
-                    Description = table.Column<string>(type: "TEXT", maxLength: 200, nullable: true),
-                    Price = table.Column<decimal>(type: "TEXT", precision: 10, scale: 2, nullable: false),
-                    PictureUrl = table.Column<string>(type: "TEXT", maxLength: 200, nullable: false),
-                    ProductTypeId = table.Column<int>(type: "INTEGER", nullable: false),
-                    ProductBrandId = table.Column<int>(type: "INTEGER", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: true),
+                    Price = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: false),
+                    PictureUrl = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    ProductTypeId = table.Column<int>(type: "int", nullable: false),
+                    ProductBrandId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
