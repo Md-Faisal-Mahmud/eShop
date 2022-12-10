@@ -1,1 +1,1 @@
-# eShop
+# eShop - eCommerce application
