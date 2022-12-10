@@ -1,7 +1,9 @@
+using API.Errors;
 using API.Extensions;
 using API.Helpers;
 using Core.Interfaces;
 using Infrastructure.Repositories;
+using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +21,23 @@ builder.Services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
 
 builder.Services.AddAutoMapper(typeof(MappingProfiles));
 
+builder.Services.Configure<ApiBehaviorOptions>(options =>
+{
+    options.InvalidModelStateResponseFactory = actionContext =>
+    {
+        var errors = actionContext.ModelState
+            .Where(e => e.Value!.Errors.Count > 0)
+            .SelectMany(x => x.Value!.Errors)
+            .Select(x => x.ErrorMessage).ToArray();
+
+        var errorResponse = new ApiValidationErrorResponse()
+        {
+            Errors = errors
+        };
+        return new BadRequestObjectResult(errorResponse);
+    };
+});
+
 
 
 var app = builder.Build();
@@ -30,6 +49,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
     app.UseDeveloperExceptionPage();
 }
+
+app.UseStatusCodePagesWithReExecute("/errors/{0}");
 
 // app.UseHttpsRedirection();
 
