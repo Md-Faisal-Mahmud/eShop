@@ -1,4 +1,5 @@
 using API.Extensions;
+using API.Helpers;
 using Core.Interfaces;
 using Infrastructure.Repositories;
 
@@ -15,6 +16,8 @@ await builder.Services.AddApplicationServices(builder.Configuration);
 
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
+
+builder.Services.AddAutoMapper(typeof(MappingProfiles));
 
 
 
