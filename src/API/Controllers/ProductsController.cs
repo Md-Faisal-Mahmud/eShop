@@ -1,4 +1,5 @@
 ﻿using API.Dtos;
+using API.Errors;
 using AutoMapper;
 using Core.Entities;
 using Core.Interfaces;
@@ -26,9 +27,9 @@ public class ProductsController : BaseApiController
     }
 
     [HttpGet]
-    public async Task<ActionResult<IReadOnlyList<Product>>> GetProducts()
+    public async Task<ActionResult<IReadOnlyList<Product>>> GetProducts(string sort)
     {
-        var spec = new ProductsWithTypesAndBrandSpecification();
+        var spec = new ProductsWithTypesAndBrandSpecification(sort);
         var productList = await _productRepo.ListAsync(spec);
 
         var productListToReturn = _mapper.Map<IReadOnlyList<Product>, IReadOnlyList<ProductToReturnDto>>(productList);
@@ -41,6 +42,8 @@ public class ProductsController : BaseApiController
     {
         var spec = new ProductsWithTypesAndBrandSpecification(id);
         Product product = await _productRepo.GetEntityWithSpec(spec);
+
+        if (product is null) return NotFound(new ApiResponse(404));
 
         var productToReturn = _mapper.Map<Product, ProductToReturnDto>(product);
         
