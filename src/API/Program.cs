@@ -21,6 +21,14 @@ builder.Services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
 
 builder.Services.AddAutoMapper(typeof(MappingProfiles));
 
+builder.Services.AddCors(opt =>
+{
+    opt.AddPolicy("CorsPolicy", policy =>
+    {
+        policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("Https://localhost:4200");
+    });
+});
+
 builder.Services.Configure<ApiBehaviorOptions>(options =>
 {
     options.InvalidModelStateResponseFactory = actionContext =>
@@ -56,6 +64,8 @@ app.UseStatusCodePagesWithReExecute("/errors/{0}");
 
 app.UseRouting();
 app.UseStaticFiles();
+
+app.UseCors("CorsPolicy");
 
 app.UseAuthorization();
 
