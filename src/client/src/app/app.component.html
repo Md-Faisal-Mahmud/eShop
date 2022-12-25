@@ -4,4 +4,10 @@
 
   <h1>Welcome to {{title}}</h1>
 
+  <ul>
+    <li class="list-unstyled" *ngFor="let product of products">
+      {{product.name}}
+    </li>
+  </ul>
+
 </div>
