@@ -18,7 +18,7 @@ export class ShopComponent implements OnInit{
     this.shopService.getProducts().subscribe(response =>{
       this.products = response.data;
     }, error =>{
-      console.log(error)
+      console.log(error);
     });
   }
 }

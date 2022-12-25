@@ -2,7 +2,7 @@
   {
     "Name": "Luna",
     "Price": 3359,
-    "PictureUrl": "images/products/sb-ang1.png",
+    "PictureUrl": "images/products/boot-ang1.png",
     "ProductTypeId": 1,
     "ProductBrandId": 2,
     "Description": "Aliqua ex ad sit ex enim quis cupidatat labore nulla ipsum. Fugiat cupidatat nulla quis dolor ipsum id fugiat minim pariatur laboris id.\r\n"
@@ -10,7 +10,7 @@
   {
     "Name": "Anderson",
     "Price": 3839,
-    "PictureUrl": "images/products/sb-ang2.png",
+    "PictureUrl": "images/products/boot-ang2.png",
     "ProductTypeId": 4,
     "ProductBrandId": 3,
     "Description": "Laboris mollit voluptate cillum consectetur in. Aute deserunt anim quis ullamco veniam amet laborum officia mollit qui.\r\n"
@@ -18,7 +18,7 @@
   {
     "Name": "Carlene",
     "Price": 2017,
-    "PictureUrl": "images/products/sb-ang3.png",
+    "PictureUrl": "images/products/boot-redis1.png",
     "ProductTypeId": 4,
     "ProductBrandId": 2,
     "Description": "Commodo mollit eiusmod quis dolore labore consequat reprehenderit. Eu incididunt qui consequat ad exercitation sint qui duis.\r\n"
@@ -26,7 +26,7 @@
   {
     "Name": "Parrish",
     "Price": 3487,
-    "PictureUrl": "images/products/sb-ang4.png",
+    "PictureUrl": "images/products/glove-code1.png",
     "ProductTypeId": 3,
     "ProductBrandId": 2,
     "Description": "Labore est sint anim ex. Tempor proident magna anim ad nisi. Nostrud quis veniam aliquip proident incididunt qui magna minim dolore adipisicing ex veniam.\r\n"
@@ -34,7 +34,7 @@
   {
     "Name": "Lamb",
     "Price": 2425,
-    "PictureUrl": "images/products/sb-ang5.png",
+    "PictureUrl": "images/products/glove-code2.png",
     "ProductTypeId": 3,
     "ProductBrandId": 1,
     "Description": "Tempor minim eu pariatur ad tempor occaecat id deserunt Lorem irure. Eu et elit consectetur ea qui anim ullamco nulla amet aute sunt..\r\n"
@@ -42,7 +42,7 @@
   {
     "Name": "Hurley",
     "Price": 3133,
-    "PictureUrl": "images/products/sb-ang6.png",
+    "PictureUrl": "images/products/glove-react1.png",
     "ProductTypeId": 2,
     "ProductBrandId": 5,
     "Description": "Adipisicing amet eiusmod nisi enim consequat consequat ut eu sit incididunt qui deserunt ut. Nulla officia enim consectetur aliqua exercitation do irure. Qui.\r\n"
@@ -50,7 +50,7 @@
   {
     "Name": "Thomas",
     "Price": 2839,
-    "PictureUrl": "images/products/sb-ang7.png",
+    "PictureUrl": "images/products/glove-react2.png",
     "ProductTypeId": 1,
     "ProductBrandId": 3,
     "Description": "Fugiat officia fugiat nostrud enim dolor. Proident amet irure eu duis adipisicing aliqua consectetur duis deserunt qui. Qui elit deserunt laborum adipisicing in.\r\n"
