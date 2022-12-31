@@ -10,6 +10,7 @@ import {HttpClient} from "@angular/common/http";
 export class TestErrorComponent implements OnInit{
 
   baseUrl = environment.apiUrl;
+  validationError :any;
 
   constructor(private http: HttpClient) {
   }
@@ -42,10 +43,11 @@ export class TestErrorComponent implements OnInit{
   }
 
   get400ValidationError(){
-    this.http.get(this.baseUrl + 'products/forty').subscribe(response =>{
+    this.http.get(this.baseUrl + 'products/3four').subscribe(response =>{
       console.log(response);
     }, error => {
       console.log(error);
+      this.validationError = error.errors;
     });
   }
 
