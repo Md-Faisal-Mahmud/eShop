@@ -22,7 +22,7 @@ builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IBasketRepository, BasketRepository>();
 builder.Services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
 
-builder.Services.AddSingleton<ConnectionMultiplexer>(c => {
+builder.Services.AddSingleton<IConnectionMultiplexer>(c => {
     var configuration = ConfigurationOptions.Parse(config.GetConnectionString("Redis"), true);
 
     return ConnectionMultiplexer.Connect(configuration);
