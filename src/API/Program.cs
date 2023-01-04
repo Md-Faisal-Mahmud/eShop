@@ -3,6 +3,7 @@ using API.Extensions;
 using API.Helpers;
 using Core.Interfaces;
 using Infrastructure.Repositories;
+using Infrastructure.Services;
 using Microsoft.AspNetCore.Mvc;
 using StackExchange.Redis;
 
@@ -19,6 +20,7 @@ var config = builder.Configuration;
 await builder.Services.AddApplicationServices(config);
 await builder.Services.AddIdentityServices(config);
 
+builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IBasketRepository, BasketRepository>();
 builder.Services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
@@ -77,6 +79,7 @@ app.UseStaticFiles();
 
 app.UseCors("CorsPolicy");
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
