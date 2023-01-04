@@ -9,12 +9,10 @@ public static class ApplicationServiceExtensions
     {
         // set db connection
         var connectionString = config.GetConnectionString("DefaultConnection");
-        // var connectionStringSqlite = config.GetConnectionString("DefaultConnectionSqlite");
         
         services.AddDbContext<StoreContext>(options =>
         {
             options.UseSqlServer(connectionString);
-            // options.UseSqlite(connectionStringSqlite);
         });
 
         var loggerFactory = services.BuildServiceProvider().GetRequiredService<ILoggerFactory>();
